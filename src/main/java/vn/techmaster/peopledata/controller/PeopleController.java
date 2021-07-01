@@ -83,20 +83,26 @@ public class PeopleController {
   public ResponseEntity<Double> maleFemaleRatio() {
     return ResponseEntity.ok().body(personRepo.maleFemaleRatio());
   }
-  //Trả về danh sách 'developer' ở các thành phố hanoi, Saigon, Shanghai
+
+
+  //---Bài tập về nhà
+  // 1. Trả về danh sách 'developer' ở các thành phố hanoi, Saigon, Shanghai
   @GetMapping("devhanoisaigonshanghai")
   public  ResponseEntity<Map<String, List<Person>>> devhanoisaigonshanghai(){
     return ResponseEntity.ok(personRepo.inHaNoiSaiGonShangHai());
   }
-
+//2. Tìm ra thành phố có độ tuổi trung bình của lập trình viên trẻ nhất
   @GetMapping("youngestdevs")
   public  ResponseEntity<String> youngest(){
     return ResponseEntity.ok(personRepo.youngestdevs());
   }
+
+  //3. Tỷ lệ nam/nữ ở từng thành phố
   @GetMapping("malefemaleratio1")
   public ResponseEntity<Double> maleFemaleRatio1() {
     return ResponseEntity.ok().body(personRepo.maleFemaleRatio());
   }
+  //4. Tính mức lương trung bình của tất cả những người trên 30 tuổi
 @GetMapping ("avgsalarypeopleabove30")
 public  ResponseEntity<Double> avgsalary(){
   return ResponseEntity.ok(personRepo.salaryabove30());
