@@ -5,12 +5,12 @@ select * from person where gender='Female' and job='driver';
 3. Tính tỷ lệ nam/nữ lập trình viên trong tất cả tập dữ liệu
 select count1/count2
 FROM
-(SELECT job, gender, count(gender) as count1
+(SELECT job, gender, count(gender) as count2
 from person
 where job='developer' and gender = 'Female'
 group by job) as a
 JOIN
-(SELECT job, gender, count(gender) as count2
+(SELECT job, gender, count(gender) as count1
 from person
 where job='developer' and gender = 'Male'
 group by job) as b on a.job=b.job;
