@@ -1,0 +1,23 @@
+1. Hãy tìm tất cả những nam giới tuổi dưới 45
+select * from person where gender='Male' and (DATE_FORMAT(FROM_DAYS(DATEDIFF(now(),birthdate)), '%Y')+0)<45;
+2. Hãy tìm tất cả những nữ giới làm nghề lái xe 'driver'
+select * from person where gender='Female' and job='driver'
+3. Tính tỷ lệ nam/nữ lập trình viên trong tất cả tập dữ liệu
+select count1/count2
+FROM
+(SELECT job, gender, count(gender) as count1
+from person
+where job='developer' and gender = 'Female'
+group by job) as a
+JOIN
+(SELECT job, gender, count(gender) as count2
+from person
+where job='developer' and gender = 'Male'
+group by job) as b on 1=1
+4. Hãy tìm 5 thành phố có số lượng nữ lớn nhất
+select city, count(gender)
+from person
+where gender = 'Female'
+group by city
+order by 2 desc limit 5
+
